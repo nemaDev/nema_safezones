@@ -203,11 +203,9 @@ CreateThread(function()
         local playerPed = PlayerPedId()
         local playerPos = GetEntityCoords(playerPed)
 
-        -- Verificar si el jugador está dentro de la zona
         for _, zone in pairs(ConfigNPC.SafeZonesNpc) do
             local point = lib.points.getClosestPoint()
 
-            -- Asegúrate de que 'point' no sea nil antes de usarlo
             if point and point.coords then
                 local distance = #(playerPos - point.coords)
                 if distance <= zone.radius then
@@ -217,7 +215,6 @@ CreateThread(function()
         end
     end
 end)
-
 
 
 AddEventHandler('onResourceStart', function(resourceName)
